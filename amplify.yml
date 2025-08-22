@@ -1,6 +1,7 @@
 version: 1
-# Next.js standard build configuration for AWS Amplify - v2.0
+# Next.js standard build configuration for AWS Amplify - v2.1
 # This configuration uses .next directory for standard Next.js builds
+# BuildSpec has been updated in Amplify console
 frontend:
   phases:
     preBuild:
