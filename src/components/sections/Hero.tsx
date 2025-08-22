@@ -7,7 +7,7 @@ import { Shield, Users, TrendingUp, ArrowRight } from 'lucide-react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-sentinel-green-50 to-sentinel-aqua-50 overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-sentinel-green-50 to-sentinel-aqua-50 overflow-hidden pt-16">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-sentinel-green-400 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>

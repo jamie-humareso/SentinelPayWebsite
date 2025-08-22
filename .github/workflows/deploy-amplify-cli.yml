@@ -1,0 +1,63 @@
+name: Deploy to AWS Amplify (CLI)
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  AWS_REGION: us-east-2
+  AMPLIFY_APP_NAME: sentinel-web
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build application
+      run: npm run build
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
+
+    - name: Install Amplify CLI
+      run: npm install -g @aws-amplify/cli
+
+    - name: Initialize Amplify (if needed)
+      run: |
+        if [ ! -f "amplify/.config/local-env-info.json" ]; then
+          echo "Initializing Amplify..."
+          amplify init --yes \
+            --app ${{ env.AMPLIFY_APP_NAME }} \
+            --envName prod \
+            --defaultEditor code
+        fi
+
+    - name: Add hosting
+      run: |
+        if ! amplify status | grep -q "hosting"; then
+          echo "Adding hosting..."
+          amplify add hosting --yes
+        fi
+
+    - name: Deploy to Amplify
+      run: |
+        echo "Deploying to Amplify..."
+        amplify publish --yes

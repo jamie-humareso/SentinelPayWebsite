@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Gavel, Bot, Users, Shield, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Footer from '@/components/layout/Footer';
@@ -7,14 +6,9 @@ import Footer from '@/components/layout/Footer';
 export default function WhyNowPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-sentinel-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
         {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-red-100 text-red-800 text-sm font-medium mb-6">
             <Shield className="w-4 h-4 mr-2" />
             Urgent Business Risk
@@ -31,15 +25,10 @@ export default function WhyNowPage() {
           <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             With new pay transparency laws and heightened legal scrutiny, using a generic, black-box tool for pay equity is a significant business risk. Sentinel's expert-guided platform helps you navigate this new landscape with confidence.
           </p>
-        </motion.div>
+        </div>
 
         {/* The New Risks Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {/* Legal Landscape */}
           <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-red-500">
             <div className="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6">
@@ -78,15 +67,10 @@ export default function WhyNowPage() {
               Today's top talent demands transparency and fairness. Pay equity is no longer just a DEI initiative; it's a core component of your talent strategy. Demonstrate your commitment and become an employer of choice.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* From Risk to Reward Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-gradient-to-r from-sentinel-green-600 to-sentinel-aqua-600 rounded-2xl p-12 text-white mb-20"
-        >
+        <div className="bg-gradient-to-r from-sentinel-green-600 to-sentinel-aqua-600 rounded-2xl p-12 text-white mb-20">
           <h2 className="text-3xl font-bold font-brand text-center mb-12">
             From Risk to Reward
           </h2>
@@ -108,15 +92,10 @@ export default function WhyNowPage() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Lead Generation CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <div className="bg-white rounded-2xl shadow-xl p-12 border border-gray-100">
             <h2 className="text-3xl font-bold font-brand text-gray-900 mb-6">
               Don't Face Your Compliance Risk Alone
@@ -134,7 +113,7 @@ export default function WhyNowPage() {
               </Button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
       <Footer />
     </div>

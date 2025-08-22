@@ -1,0 +1,64 @@
+name: Deploy to AWS Amplify
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+env:
+  AWS_REGION: us-east-2
+  AMPLIFY_APP_NAME: sentinel-web
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build application
+      run: npm run build
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-2
+        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        role-duration-seconds: 1200
+
+    - name: Deploy to Amplify
+      run: |
+        # Check if Amplify app exists, create if not
+        if ! aws amplify get-app --app-id ${{ secrets.AMPLIFY_APP_ID }} --region us-east-2 2>/dev/null; then
+          echo "Creating new Amplify app: ${{ env.AMPLIFY_APP_NAME }}"
+          aws amplify create-app \
+            --name ${{ env.AMPLIFY_APP_NAME }} \
+            --region us-east-2 \
+            --description "Sentinel Pay Analytics Platform"
+        fi
+        
+        # Deploy the build
+        echo "Deploying to Amplify..."
+        aws amplify start-job \
+          --app-id ${{ secrets.AMPLIFY_APP_ID }} \
+          --branch-name main \
+          --job-type RELEASE \
+          --region us-east-2
+
+    - name: Deploy status
+      run: |
+        echo "Deployment initiated successfully!"
+        echo "Check AWS Amplify console for deployment status"

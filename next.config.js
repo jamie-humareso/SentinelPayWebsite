@@ -13,7 +13,7 @@ const nextConfig = {
   
   // Performance optimizations
   experimental: {
-    optimizePackageImports: ['framer-motion', 'lucide-react'],
+    optimizePackageImports: ['lucide-react'],
   },
   
   // Security headers

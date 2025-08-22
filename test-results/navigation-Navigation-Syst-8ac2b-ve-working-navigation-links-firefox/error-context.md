@@ -1,0 +1,295 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - generic [ref=e5]:
+          - img "Sentinel Logo" [ref=e7]
+          - generic [ref=e8]: Sentinel
+        - generic [ref=e9]:
+          - link "Platform" [ref=e11] [cursor=pointer]:
+            - /url: /platform
+            - generic [ref=e12] [cursor=pointer]: Platform
+          - link "How It Works" [ref=e14] [cursor=pointer]:
+            - /url: /how-it-works
+            - generic [ref=e15] [cursor=pointer]: How It Works
+          - link "Our Experts" [ref=e17] [cursor=pointer]:
+            - /url: /experts
+            - generic [ref=e18] [cursor=pointer]: Our Experts
+          - link "Pricing" [ref=e20] [cursor=pointer]:
+            - /url: /pricing
+            - generic [ref=e21] [cursor=pointer]: Pricing
+          - link "Resources" [ref=e23] [cursor=pointer]:
+            - /url: /resources
+            - generic [ref=e24] [cursor=pointer]: Resources
+            - img [ref=e25] [cursor=pointer]
+          - link "Contact" [ref=e28] [cursor=pointer]:
+            - /url: /contact
+            - generic [ref=e29] [cursor=pointer]: Contact
+        - button "Schedule Demo" [ref=e30]
+      - generic [ref=e31]:
+        - generic [ref=e32]:
+          - img "Sentinel Logo" [ref=e34]
+          - generic [ref=e35]: Sentinel
+        - button "Toggle mobile menu" [ref=e36]:
+          - img [ref=e37]
+  - generic [ref=e42]:
+    - generic [ref=e43]:
+      - generic [ref=e44]:
+        - img "Sentinel Logo" [ref=e46]
+        - generic [ref=e47]: Sentinel
+      - button "Close mobile menu" [ref=e48]:
+        - img [ref=e49]
+    - generic [ref=e52]:
+      - link "Platform" [ref=e54] [cursor=pointer]:
+        - /url: /platform
+        - generic [ref=e56] [cursor=pointer]: Platform
+      - link "How It Works" [ref=e58] [cursor=pointer]:
+        - /url: /how-it-works
+        - generic [ref=e60] [cursor=pointer]: How It Works
+      - link "Our Experts" [ref=e62] [cursor=pointer]:
+        - /url: /experts
+        - generic [ref=e64] [cursor=pointer]: Our Experts
+      - link "Pricing" [ref=e66] [cursor=pointer]:
+        - /url: /pricing
+        - generic [ref=e68] [cursor=pointer]: Pricing
+      - link "Resources" [ref=e70] [cursor=pointer]:
+        - /url: /resources
+        - generic [ref=e71] [cursor=pointer]:
+          - generic [ref=e72] [cursor=pointer]: Resources
+          - img [ref=e73] [cursor=pointer]
+      - link "Contact" [ref=e76] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e78] [cursor=pointer]: Contact
+    - button "Schedule Demo" [ref=e80]
+  - main [ref=e81]:
+    - generic [ref=e83]:
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - img [ref=e86]
+          - text: Expert-Guided Pay Equity Platform
+        - heading "Don't Trust Your Pay Equity to a Black Box" [level=1] [ref=e88]:
+          - text: Don't Trust Your Pay Equity to a
+          - generic [ref=e89]: Black Box
+        - paragraph [ref=e90]: Sentinel combines a powerful, defensible analytics platform with on-demand access to our team of pay equity experts. Get the clarity of a world-class tool and the confidence of a trusted human advisor.
+        - generic [ref=e91]:
+          - button "Schedule a Consultation" [ref=e92]:
+            - text: Schedule a Consultation
+            - img [ref=e93]
+          - button "See the Platform" [ref=e96]
+        - generic [ref=e97]:
+          - generic [ref=e98]:
+            - img [ref=e99]
+            - generic [ref=e104]: Trusted by 500+ Companies
+          - generic [ref=e105]:
+            - img [ref=e106]
+            - generic [ref=e109]: 99% Client Satisfaction
+          - generic [ref=e110]:
+            - img [ref=e111]
+            - generic [ref=e113]: Legal-Grade Analytics
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - img [ref=e117]
+          - heading "Defensible Platform" [level=3] [ref=e119]
+          - paragraph [ref=e120]: Legal and board-ready analytics
+        - generic [ref=e121]:
+          - img [ref=e123]
+          - heading "Expert Guidance" [level=3] [ref=e128]
+          - paragraph [ref=e129]: On-demand human expertise
+        - generic [ref=e130]:
+          - img [ref=e132]
+          - heading "Proven Results" [level=3] [ref=e135]
+          - paragraph [ref=e136]: Actionable insights delivered
+    - generic [ref=e138]:
+      - generic [ref=e139]:
+        - heading "A Guided Process for Confident Decision-Making" [level=2] [ref=e140]:
+          - text: A Guided Process for
+          - generic [ref=e141]: Confident Decision-Making
+        - paragraph [ref=e142]: Our three-pillar approach combines cutting-edge analytics with human expertise to deliver actionable insights that drive real change.
+      - generic [ref=e143]:
+        - generic [ref=e145]:
+          - img [ref=e147]
+          - heading "Uncover Gaps with Precision" [level=3] [ref=e149]
+          - paragraph [ref=e150]: Our platform does the heavy lifting, running a rigorous analysis to identify the specific, statistically significant pay gaps that pose the greatest risk to your organization.
+          - list [ref=e151]:
+            - listitem [ref=e152]:
+              - img [ref=e153]
+              - text: Multi-factor regression analysis
+            - listitem [ref=e156]:
+              - img [ref=e157]
+              - text: Statistical significance testing
+            - listitem [ref=e160]:
+              - img [ref=e161]
+              - text: Risk assessment scoring
+            - listitem [ref=e164]:
+              - img [ref=e165]
+              - text: Legal-grade documentation
+          - link "Learn more" [ref=e169] [cursor=pointer]:
+            - /url: "#"
+            - text: Learn more
+            - img [ref=e170] [cursor=pointer]
+        - generic [ref=e174]:
+          - img [ref=e176]
+          - heading "Interpret and Remediate with Experts" [level=3] [ref=e181]
+          - paragraph [ref=e182]: Work with our team to understand the why behind the numbers. We help you model the most effective, budget-sensitive remediation plans and prioritize your next steps.
+          - list [ref=e183]:
+            - listitem [ref=e184]:
+              - img [ref=e185]
+              - text: Expert consultation
+            - listitem [ref=e188]:
+              - img [ref=e189]
+              - text: Remediation modeling
+            - listitem [ref=e192]:
+              - img [ref=e193]
+              - text: Budget optimization
+            - listitem [ref=e196]:
+              - img [ref=e197]
+              - text: Priority planning
+          - link "Learn more" [ref=e201] [cursor=pointer]:
+            - /url: "#"
+            - text: Learn more
+            - img [ref=e202] [cursor=pointer]
+        - generic [ref=e206]:
+          - img [ref=e208]
+          - heading "Communicate with Confidence" [level=3] [ref=e211]
+          - paragraph [ref=e212]: We help you build the narrative for your leadership, your board, and your employees. Move forward with a clear, defensible story backed by both data and expert insight.
+          - list [ref=e213]:
+            - listitem [ref=e214]:
+              - img [ref=e215]
+              - text: Leadership narratives
+            - listitem [ref=e218]:
+              - img [ref=e219]
+              - text: Board presentations
+            - listitem [ref=e222]:
+              - img [ref=e223]
+              - text: Employee communications
+            - listitem [ref=e226]:
+              - img [ref=e227]
+              - text: Defensible storytelling
+          - link "Learn more" [ref=e231] [cursor=pointer]:
+            - /url: "#"
+            - text: Learn more
+            - img [ref=e232] [cursor=pointer]
+      - generic [ref=e236]:
+        - heading "Ready to Transform Your Pay Equity Strategy?" [level=3] [ref=e237]
+        - paragraph [ref=e238]: Join hundreds of companies that trust Sentinel to deliver defensible, actionable insights that drive real change.
+        - generic [ref=e239]:
+          - button "Schedule a Consultation" [ref=e240]
+          - button "Learn More" [ref=e241]
+    - generic [ref=e243]:
+      - generic [ref=e244]:
+        - heading "Trusted by Industry Leaders" [level=2] [ref=e245]
+        - paragraph [ref=e246]: See how leading organizations are transforming their pay equity practices with Sentinel.
+      - generic [ref=e247]:
+        - generic [ref=e249]:
+          - img [ref=e251]
+          - generic [ref=e254]:
+            - img [ref=e255]
+            - img [ref=e257]
+            - img [ref=e259]
+            - img [ref=e261]
+            - img [ref=e263]
+          - blockquote [ref=e265]: "\"Sentinel's platform gave us the confidence to address pay equity proactively. The expert guidance made all the difference in building our case to leadership.\""
+          - generic [ref=e266]:
+            - generic [ref=e267]: Sarah Chen
+            - generic [ref=e268]: VP of People, TechFlow Inc.
+        - generic [ref=e270]:
+          - img [ref=e272]
+          - generic [ref=e275]:
+            - img [ref=e276]
+            - img [ref=e278]
+            - img [ref=e280]
+            - img [ref=e282]
+            - img [ref=e284]
+          - blockquote [ref=e286]: "\"We were struggling with manual pay audits until we found Sentinel. The platform is intuitive, and their experts helped us identify and fix gaps we didn't even know existed.\""
+          - generic [ref=e287]:
+            - generic [ref=e288]: Marcus Rodriguez
+            - generic [ref=e289]: Chief Diversity Officer, Global Solutions
+        - generic [ref=e291]:
+          - img [ref=e293]
+          - generic [ref=e296]:
+            - img [ref=e297]
+            - img [ref=e299]
+            - img [ref=e301]
+            - img [ref=e303]
+            - img [ref=e305]
+          - blockquote [ref=e307]: "\"The combination of powerful analytics and human expertise is exactly what we needed. Sentinel helped us build a defensible pay equity strategy that our board could trust.\""
+          - generic [ref=e308]:
+            - generic [ref=e309]: Jennifer Walsh
+            - generic [ref=e310]: General Counsel, InnovateCorp
+      - generic [ref=e312]:
+        - heading "Join 500+ Companies Trusting Sentinel" [level=3] [ref=e313]
+        - generic [ref=e314]:
+          - generic [ref=e315]: SOC 2 Type II Certified
+          - generic [ref=e316]: GDPR Compliant
+          - generic [ref=e317]: AWS Hosted
+          - generic [ref=e318]: 99.9% Uptime
+    - generic [ref=e320]:
+      - generic [ref=e321]:
+        - generic [ref=e322]:
+          - generic [ref=e323]:
+            - img "Sentinel Logo" [ref=e325]
+            - generic [ref=e326]: Sentinel
+          - paragraph [ref=e327]: Expert-guided pay equity analytics platform. Combine powerful analytics with human expertise to build defensible, actionable pay equity strategies.
+          - generic [ref=e328]:
+            - link [ref=e329] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e330] [cursor=pointer]
+            - link [ref=e334] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e335] [cursor=pointer]
+            - link [ref=e337] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e338] [cursor=pointer]
+        - generic [ref=e340]:
+          - heading "Platform" [level=3] [ref=e341]
+          - list [ref=e342]:
+            - listitem [ref=e343]:
+              - link "Features" [ref=e344] [cursor=pointer]:
+                - /url: /platform
+            - listitem [ref=e345]:
+              - link "How It Works" [ref=e346] [cursor=pointer]:
+                - /url: /how-it-works
+            - listitem [ref=e347]:
+              - link "Pricing" [ref=e348] [cursor=pointer]:
+                - /url: /pricing
+            - listitem [ref=e349]:
+              - link "Resources" [ref=e350] [cursor=pointer]:
+                - /url: /resources
+        - generic [ref=e351]:
+          - heading "Company" [level=3] [ref=e352]
+          - list [ref=e353]:
+            - listitem [ref=e354]:
+              - link "About Us" [ref=e355] [cursor=pointer]:
+                - /url: /about
+            - listitem [ref=e356]:
+              - link "Our Experts" [ref=e357] [cursor=pointer]:
+                - /url: /experts
+            - listitem [ref=e358]:
+              - link "Careers" [ref=e359] [cursor=pointer]:
+                - /url: /careers
+            - listitem [ref=e360]:
+              - link "Contact" [ref=e361] [cursor=pointer]:
+                - /url: /contact
+      - generic [ref=e363]:
+        - generic [ref=e364]:
+          - img [ref=e365]
+          - generic [ref=e368]: hello@sentinel-pay-analytics.com
+        - generic [ref=e369]:
+          - img [ref=e370]
+          - generic [ref=e372]: +1 (555) 123-4567
+        - generic [ref=e373]:
+          - img [ref=e374]
+          - generic [ref=e377]: San Francisco, CA
+      - generic [ref=e378]:
+        - generic [ref=e379]: © 2025 Sentinel Pay Analytics. All rights reserved.
+        - generic [ref=e380]:
+          - link "Privacy Policy" [ref=e381] [cursor=pointer]:
+            - /url: /privacy
+          - link "Terms of Service" [ref=e382] [cursor=pointer]:
+            - /url: /terms
+          - link "Cookie Policy" [ref=e383] [cursor=pointer]:
+            - /url: /cookies
+```

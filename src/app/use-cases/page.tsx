@@ -73,13 +73,13 @@ export default function UseCasesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-sentinel-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-brand text-gray-900 mb-6 leading-tight">
             A Solution for{' '}
@@ -93,7 +93,7 @@ export default function UseCasesPage() {
         </motion.div>
 
         {/* Tabbed Interface */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+        <div className="bg-white rounded-2xl shadow-xl p-8 mb-20">
           {/* Tab Navigation */}
           <div className="flex flex-col sm:flex-row gap-2 mb-8 border-b border-gray-200">
             {personas.map((persona) => (

@@ -1,169 +1,93 @@
-# 🚀 Sentinel Website Deployment Guide
+# AWS Amplify Deployment Guide
 
-## **Vercel Deployment - Production Ready**
+## Overview
+This project is configured to deploy to AWS Amplify using GitHub Actions. The app will be named `sentinel-web` and deployed to the `us-east-2` region.
 
-### **Prerequisites**
-- [Vercel CLI](https://vercel.com/cli) installed
-- [Node.js 18+](https://nodejs.org/) installed
-- [Git](https://git-scm.com/) repository set up
+## GitHub Secrets Required
 
-### **Quick Deploy (Recommended)**
+Add these secrets to your GitHub repository (Settings > Secrets and variables > Actions):
 
-1. **Install Vercel CLI**
-   ```bash
-   npm i -g vercel
-   ```
+### Required Secrets:
+- `AWS_ACCESS_KEY_ID`: Sentinel's AWS access key
+- `AWS_SECRET_ACCESS_KEY`: Sentinel's AWS secret key
 
-2. **Login to Vercel**
-   ```bash
-   vercel login
-   ```
+### Optional Secrets (for advanced setup):
+- `AMPLIFY_APP_ID`: The Amplify app ID (will be created automatically if not provided)
+- `AWS_ROLE_TO_ASSUME`: IAM role ARN for cross-account access
 
-3. **Deploy from Project Directory**
-   ```bash
-   cd /path/to/SentinelPayWebsite
-   vercel --prod
-   ```
+## Deployment Workflows
 
-### **Manual Deployment Steps**
+### 1. AWS Amplify CLI Workflow (Recommended)
+- **File**: `.github/workflows/deploy-amplify-cli.yml`
+- **Trigger**: Push to `main` or `master` branch
+- **Process**: Uses Amplify CLI for deployment
 
-1. **Prepare the Project**
-   ```bash
-   # Clean and install dependencies
-   npm ci
-   
-   # Build the project
-   npm run build
-   
-   # Run tests
-   npm test
-   ```
+### 2. AWS CLI Direct Workflow
+- **File**: `.github/workflows/deploy-amplify.yml`
+- **Trigger**: Push to `main` or `master` branch
+- **Process**: Uses AWS CLI directly for deployment
 
-2. **Deploy to Vercel**
-   ```bash
-   # Initial deployment
-   vercel
-   
-   # Production deployment
-   vercel --prod
-   ```
+## Local Development
 
-### **Environment Variables**
-
-Set these in your Vercel dashboard:
-
-```env
-NODE_ENV=production
-NEXT_TELEMETRY_DISABLED=1
-NEXT_OPTIMIZE_FONTS=true
-NEXT_OPTIMIZE_IMAGES=true
-```
-
-### **Custom Domain Setup**
-
-1. **Add Domain in Vercel Dashboard**
-   - Go to Project Settings → Domains
-   - Add your custom domain (e.g., `sentinel-pay-analytics.com`)
-
-2. **Configure DNS Records**
-   - Add CNAME record pointing to your Vercel deployment
-   - Wait for DNS propagation (up to 48 hours)
-
-### **Performance Optimizations**
-
-The website is pre-optimized with:
-
-- ✅ **Image Optimization**: WebP and AVIF formats
-- ✅ **Font Optimization**: Google Fonts with display=swap
-- ✅ **Code Splitting**: Automatic route-based code splitting
-- ✅ **CSS Optimization**: Purged and minified CSS
-- ✅ **Bundle Analysis**: Optimized package imports
-
-### **Monitoring & Analytics**
-
-1. **Vercel Analytics** (Built-in)
-   - Performance metrics
-   - Core Web Vitals
-   - User experience data
-
-2. **Google Analytics** (Optional)
-   - Add GA4 tracking code to `src/app/layout.tsx`
-   - Configure conversion tracking
-
-### **Post-Deployment Checklist**
-
-- [ ] ✅ Website loads correctly
-- [ ] ✅ All pages accessible
-- [ ] ✅ Navigation working
-- [ ] ✅ Forms functional
-- [ ] ✅ Images loading
-- [ ] ✅ Mobile responsive
-- [ ] ✅ Performance scores >90
-- [ ] ✅ SSL certificate active
-- [ ] ✅ Custom domain working
-
-### **Troubleshooting**
-
-#### **Build Failures**
+### Using Sentinel AWS Profile:
 ```bash
-# Clear cache and rebuild
-rm -rf .next node_modules/.cache
-npm ci
-npm run build
+# Set Sentinel profile for AWS operations
+export AWS_PROFILE=sentinel
+
+# Check AWS configuration
+aws configure list --profile sentinel
+
+# Test AWS access
+aws sts get-caller-identity --profile sentinel
 ```
 
-#### **Performance Issues**
+### Manual Amplify Deployment:
 ```bash
-# Analyze bundle
-npm run build
-# Check .next/analyze/ for bundle analysis
+# Install Amplify CLI
+npm install -g @aws-amplify/cli
+
+# Initialize (first time only)
+amplify init --appName sentinel-web --envName prod
+
+# Add hosting
+amplify add hosting
+
+# Deploy
+amplify publish
 ```
 
-#### **Domain Issues**
-- Verify DNS records are correct
-- Check Vercel domain configuration
-- Wait for DNS propagation
+## AWS Resources Created
 
-### **Continuous Deployment**
+The deployment will create:
+- **Amplify App**: `sentinel-web`
+- **Hosting Environment**: Production environment
+- **S3 Bucket**: For static assets
+- **CloudFront Distribution**: For global CDN
+- **IAM Roles**: For deployment permissions
 
-1. **Connect GitHub Repository**
-   - Link your repo in Vercel dashboard
-   - Enable automatic deployments
+## Troubleshooting
 
-2. **Branch Deployments**
-   - `main` branch → Production
-   - `develop` branch → Preview
-   - Pull requests → Preview deployments
+### Common Issues:
+1. **Build Failures**: Check the build logs in GitHub Actions
+2. **Permission Errors**: Verify AWS credentials and IAM permissions
+3. **Region Mismatch**: Ensure all resources are in `us-east-2`
 
-### **Security Features**
+### Manual Deployment:
+If GitHub Actions fails, you can manually deploy:
+```bash
+export AWS_PROFILE=sentinel
+aws amplify start-job --app-id YOUR_APP_ID --branch-name main --job-type RELEASE
+```
 
-- ✅ **HTTPS**: Automatic SSL certificates
-- ✅ **Security Headers**: XSS protection, frame options
-- ✅ **Content Security**: Strict content type policies
-- ✅ **Referrer Policy**: Controlled referrer information
+## Cost Considerations
 
-### **Backup & Recovery**
+- **Amplify**: Pay per build minute and data transfer
+- **S3**: Storage and request costs
+- **CloudFront**: Data transfer and request costs
+- **Free Tier**: Available for new accounts
 
-1. **Database Backup** (if applicable)
-2. **Content Backup**: All content is in Git
-3. **Configuration Backup**: Environment variables in Vercel
+## Security Notes
 
-### **Support & Maintenance**
-
-- **Vercel Status**: [status.vercel.com](https://status.vercel.com)
-- **Documentation**: [vercel.com/docs](https://vercel.com/docs)
-- **Community**: [github.com/vercel/vercel/discussions](https://github.com/vercel/vercel/discussions)
-
----
-
-## **🚀 Ready to Deploy!**
-
-Your Sentinel website is production-ready and optimized for Vercel deployment. The build process will automatically:
-
-1. **Optimize** all assets and code
-2. **Compress** images and fonts
-3. **Minify** CSS and JavaScript
-4. **Generate** static pages where possible
-5. **Deploy** to Vercel's global CDN
-
-**Deploy now and watch your world-class website go live!** 🎉
+- AWS credentials are stored as GitHub secrets
+- IAM roles should follow least privilege principle
+- Consider using OIDC for more secure authentication

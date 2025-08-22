@@ -4,9 +4,9 @@ import Footer from '@/components/layout/Footer';
 export default function ExpertsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-sentinel-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
         {/* Page Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-20">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-brand text-gray-900 mb-6">
             Meet Our{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-sentinel-green-600 to-sentinel-aqua-600">
@@ -19,7 +19,7 @@ export default function ExpertsPage() {
         </div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
           {/* Brian Breslin */}
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow">
             <div className="w-24 h-24 bg-gradient-to-br from-sentinel-green-100 to-sentinel-aqua-100 rounded-full mx-auto mb-6 flex items-center justify-center">
@@ -79,7 +79,7 @@ export default function ExpertsPage() {
             <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Jamie Aquila</h3>
             <p className="text-sentinel-aqua-600 font-medium mb-3">Technology Advisor</p>
             <p className="text-gray-600 mb-4">
-              Jamie is a technologist and four-time startup CTO who has built award-winning HR platforms. He leads technology and product design, ensuring the Pay Equity Regression Tool is powerful and intuitive.
+              Jamie is a technologist and four-time startup CTO who has built award-winning HR platforms. His work has earned recognition on LinkedIn's Top 50 Startups list (2018) and in the Startup of the Year Top 100 (2020). He leads technology and product design, ensuring the Pay Equity Regression Tool is powerful and intuitive.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
               <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Technology</span>

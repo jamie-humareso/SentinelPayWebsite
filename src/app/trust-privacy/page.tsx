@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Shield, Cloud, Lock, FileText, ArrowRight, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import Footer from '@/components/layout/Footer';
@@ -7,14 +6,9 @@ import Footer from '@/components/layout/Footer';
 export default function TrustPrivacyPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-sentinel-green-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
         {/* Hero Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-sentinel-green-100 text-sentinel-green-800 text-sm font-medium mb-6">
             <Shield className="w-4 h-4 mr-2" />
             Enterprise-Grade Security
@@ -30,15 +24,10 @@ export default function TrustPrivacyPage() {
           <p className="text-xl sm:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             As a small, expert-led company, we know that trust is everything. We are committed to protecting your sensitive employee data with transparent policies and a security architecture built on industry best practices.
           </p>
-        </motion.div>
+        </div>
 
         {/* Security Foundation Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
           {/* AWS Infrastructure */}
           <div className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-blue-500">
             <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
@@ -77,15 +66,10 @@ export default function TrustPrivacyPage() {
               While we don't hold formal certifications like SOC 2, our platform is built to help you meet your compliance needs. We provide the tools and data controls to support your internal requirements and help you adhere to regulations like GDPR.
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Data Governance Policy */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="bg-white rounded-2xl shadow-xl p-12 mb-20"
-        >
+        <div className="bg-white rounded-2xl shadow-xl p-12 mb-20">
           <h2 className="text-3xl font-bold font-brand text-gray-900 mb-8 text-center">
             Your Data, Your Control: A Plain-Language Policy
           </h2>
@@ -129,15 +113,10 @@ export default function TrustPrivacyPage() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Security Features Checklist */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-white rounded-2xl shadow-xl p-12 mb-20"
-        >
+        <div className="bg-white rounded-2xl shadow-xl p-12 mb-20">
           <h2 className="text-3xl font-bold font-brand text-gray-900 mb-8 text-center">
             Enterprise Security Features
           </h2>
@@ -179,15 +158,10 @@ export default function TrustPrivacyPage() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Lead Generation CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-center"
-        >
+        <div className="text-center">
           <div className="bg-white rounded-2xl shadow-xl p-12 border border-gray-100">
             <h2 className="text-3xl font-bold font-brand text-gray-900 mb-6">
               Questions About Our Security Practices?
@@ -205,7 +179,7 @@ export default function TrustPrivacyPage() {
               </Button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
       <Footer />
     </div>
