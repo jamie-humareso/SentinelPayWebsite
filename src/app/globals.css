@@ -37,6 +37,38 @@
   .button-hover {
     @apply transition-all duration-200 hover:shadow-lg active:scale-95;
   }
+
+  /* Global button styles to fix white-on-white issues */
+  button {
+    @apply transition-all duration-200;
+  }
+
+  /* Ensure buttons with white backgrounds have proper text color */
+  button.bg-white,
+  button[class*="bg-white"] {
+    @apply text-gray-900;
+  }
+
+  /* Ensure buttons with white backgrounds on hover have proper text color */
+  button.bg-white:hover,
+  button[class*="bg-white"]:hover {
+    @apply text-gray-900;
+  }
+
+  /* Specific fix for the Learn More button in the strategy section */
+  button.bg-white.border-2.border-white.text-white:hover {
+    @apply text-sentinel-green-600;
+  }
+
+  /* Ensure all buttons have proper focus states */
+  button:focus {
+    @apply outline-none ring-2 ring-offset-2;
+  }
+
+  /* Button with white background and white border should have dark text on hover */
+  button.bg-white.border-white.text-white:hover {
+    @apply text-sentinel-green-600;
+  }
 }
 
 @layer utilities {
