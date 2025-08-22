@@ -62,18 +62,28 @@ jobs:
         
         echo "Found app ID: $APP_ID"
         
-        # Start the build job
-        echo "Starting build job..."
-        aws amplify start-job \
+        # Create and start deployment
+        echo "Creating deployment..."
+        DEPLOYMENT_ID=$(aws amplify create-deployment \
           --app-id $APP_ID \
           --branch-name main \
-          --job-type RELEASE \
+          --region us-east-2 \
+          --query "deploymentId" \
+          --output text)
+        
+        echo "Deployment created with ID: $DEPLOYMENT_ID"
+        
+        echo "Starting deployment..."
+        aws amplify start-deployment \
+          --app-id $APP_ID \
+          --branch-name main \
+          --deployment-id $DEPLOYMENT_ID \
           --region us-east-2
         
-        echo "Deployment job started successfully!"
+        echo "Deployment started successfully!"
         echo "App ID: $APP_ID"
         echo "Branch: main"
-        echo "Job Type: RELEASE"
+        echo "Deployment ID: $DEPLOYMENT_ID"
 
     - name: Deploy status
       run: |
