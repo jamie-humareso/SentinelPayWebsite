@@ -77,28 +77,18 @@ jobs:
           echo "Branch 'main' already exists"
         fi
         
-        # Create and start deployment
-        echo "Creating deployment..."
-        DEPLOYMENT_ID=$(aws amplify create-deployment \
+        # Start a build job for the branch
+        echo "Starting build job for branch 'main'..."
+        aws amplify start-job \
           --app-id $APP_ID \
           --branch-name main \
-          --region us-east-2 \
-          --query "deploymentId" \
-          --output text)
-        
-        echo "Deployment created with ID: $DEPLOYMENT_ID"
-        
-        echo "Starting deployment..."
-        aws amplify start-deployment \
-          --app-id $APP_ID \
-          --branch-name main \
-          --deployment-id $DEPLOYMENT_ID \
+          --job-type RELEASE \
           --region us-east-2
         
-        echo "Deployment started successfully!"
+        echo "Build job started successfully!"
         echo "App ID: $APP_ID"
         echo "Branch: main"
-        echo "Deployment ID: $DEPLOYMENT_ID"
+        echo "Job Type: RELEASE"
 
     - name: Deploy status
       run: |
