@@ -1,3 +1,42 @@
+# Sentinel Pay Website
+
+[![Deploy to AWS Amplify](https://img.shields.io/badge/Deploy-AWS%20Amplify-orange?style=for-the-badge&logo=amazon-aws)](https://console.aws.amazon.com/amplify/home?region=us-east-2#/d36xfj43ezpkp)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Deploy%20on%20Push-green?style=for-the-badge&logo=github-actions)](https://github.com/jamie-humareso/SentinelPayWebsite/actions)
+
+**Status**: Multiple deployment options available - choose what works best for you!
+
+## 🚀 **Quick Deploy Options**
+
+### Option 1: Netlify Drop (Recommended for Drafts)
+```bash
+# Build and prepare for Netlify Drop
+./deploy-netlify.sh
+
+# Then go to https://app.netlify.com/drop and drag the 'out' folder
+```
+
+### Option 2: S3 + CloudFront (AWS)
+```bash
+# Deploy to S3 with CloudFront
+./deploy-s3.sh
+
+# URLs:
+# S3: http://sentinel-pay-website.s3-website.us-east-2.amazonaws.com
+# CloudFront: https://d3psf3ynte8tar.cloudfront.net
+```
+
+### Option 3: Manual Build
+```bash
+npm run build
+# Serve the 'out' folder with any static host
+```
+
+## 🌐 **Live URLs**
+
+- **Netlify Drop**: Build with `./deploy-netlify.sh` then deploy at https://app.netlify.com/drop
+- **S3 Website**: http://sentinel-pay-website.s3-website.us-east-2.amazonaws.com (account restrictions apply)
+- **CloudFront**: https://d3psf3ynte8tar.cloudfront.net (CDN, faster)
+
 # 🚀 Sentinel Website Builder - Advanced Playwright Edition
 
 **Professional-grade automation for building amazing Squarespace marketing websites**
