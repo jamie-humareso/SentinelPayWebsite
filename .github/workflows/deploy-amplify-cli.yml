@@ -45,7 +45,8 @@ jobs:
         if [ ! -f "amplify/.config/local-env-info.json" ]; then
           echo "Initializing Amplify..."
           amplify init --yes \
-            --app ${{ env.AMPLIFY_APP_NAME }} \
+            --appId d36xfj43ezpkp \
+            --appName ${{ env.AMPLIFY_APP_NAME }} \
             --envName prod \
             --defaultEditor code
         fi
