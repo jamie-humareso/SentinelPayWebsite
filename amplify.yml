@@ -1,5 +1,5 @@
 version: 1
-# Next.js static export configuration for AWS Amplify
+# Next.js standard build configuration for AWS Amplify
 frontend:
   phases:
     preBuild:
@@ -12,7 +12,7 @@ frontend:
         - npm run build
         - echo "Build completed successfully"
   artifacts:
-    baseDirectory: out
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
