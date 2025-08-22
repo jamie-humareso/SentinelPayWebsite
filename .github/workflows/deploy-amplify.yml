@@ -46,10 +46,33 @@ jobs:
         APPS_JSON=$(aws amplify list-apps --region us-east-2 --output json)
         EXISTING_APP=$(echo "$APPS_JSON" | jq -r ".apps[] | select(.name == \"${{ env.AMPLIFY_APP_NAME }}\") | .appId" | head -1)
         
-        echo "Found app ID: '$EXISTING_APP'"
+        if [ -n "$EXISTING_APP" ] && [ "$EXISTING_APP" != "null" ] && [ "$EXISTING_APP" != "None" ]; then
+          echo "Found existing app with ID: '$EXISTING_APP'"
+          echo "Checking if it's Git-connected..."
+          
+          # Check if app has repository connection
+          APP_CONFIG=$(aws amplify get-app --app-id $EXISTING_APP --region us-east-2 --output json)
+          REPO_URL=$(echo "$APP_CONFIG" | jq -r '.app.repository')
+          
+          if [ "$REPO_URL" = "null" ] || [ -z "$REPO_URL" ]; then
+            echo "Existing app is not Git-connected. Deleting it to recreate properly..."
+            
+            # Delete existing app
+            aws amplify delete-app --app-id $EXISTING_APP --region us-east-2
+            echo "Existing app deleted successfully"
+            
+            # Wait for deletion to complete
+            echo "Waiting for app deletion to complete..."
+            sleep 30
+            
+            EXISTING_APP=""
+          else
+            echo "App is already Git-connected to: $REPO_URL"
+          fi
+        fi
         
         if [ -z "$EXISTING_APP" ] || [ "$EXISTING_APP" = "null" ] || [ "$EXISTING_APP" = "None" ]; then
-          echo "App not found. Creating new Amplify app from GitHub repository..."
+          echo "Creating new Git-connected Amplify app..."
           
           # Create new app from GitHub repository
           aws amplify create-app \
@@ -61,41 +84,11 @@ jobs:
           
           echo "App created successfully!"
           echo "Now you need to connect the branch in the AWS Amplify console:"
-          echo "1. Go to AWS Amplify Console"
+          echo "1. Go to AWS Amplify Console: https://console.aws.amazon.com/amplify/home?region=us-east-2"
           echo "2. Select the app: ${{ env.AMPLIFY_APP_NAME }}"
           echo "3. Click 'Connect branch'"
           echo "4. Select 'main' branch"
-          echo "5. Amplify will automatically build and deploy"
-        else
-          echo "App already exists with ID: $EXISTING_APP"
-          echo "Checking if it's connected to repository..."
-          
-          # Check if app has branches
-          BRANCHES=$(aws amplify list-branches --app-id $EXISTING_APP --region us-east-2 --query "branches[].branchName" --output text)
-          
-          if [ -z "$BRANCHES" ] || [ "$BRANCHES" = "None" ]; then
-            echo "App exists but has no branches. Please connect the main branch in AWS Amplify console."
-            echo "1. Go to AWS Amplify Console"
-            echo "2. Select the app: ${{ env.AMPLIFY_APP_NAME }}"
-            echo "3. Click 'Connect branch'"
-            echo "4. Select 'main' branch"
-          else
-            echo "App has branches: $BRANCHES"
-            echo "Checking if main branch exists..."
-            
-            if echo "$BRANCHES" | grep -q "main"; then
-              echo "Main branch exists. Triggering build..."
-              aws amplify start-job \
-                --app-id $EXISTING_APP \
-                --branch-name main \
-                --job-type RELEASE \
-                --region us-east-2
-              
-              echo "Build job started successfully!"
-            else
-              echo "Main branch not found. Please connect it in AWS Amplify console."
-            fi
-          fi
+          echo "5. Amplify will automatically build and deploy using amplify.yml"
         fi
         
         echo ""
@@ -104,6 +97,7 @@ jobs:
         echo "2. Select your app: ${{ env.AMPLIFY_APP_NAME }}"
         echo "3. Connect the main branch if not already connected"
         echo "4. Amplify will automatically build and deploy on future pushes"
+        echo "5. Your site will be available at: https://${{ env.AMPLIFY_APP_NAME }}.amplifyapp.com"
 
     - name: Deploy status
       run: |
