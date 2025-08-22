@@ -43,9 +43,12 @@ jobs:
         
         # Check if app exists
         echo "Checking if app '${{ env.AMPLIFY_APP_NAME }}' exists..."
-        EXISTING_APP=$(aws amplify list-apps --region us-east-2 --query "apps[?name=='${{ env.AMPLIFY_APP_NAME }}'].appId" --output text)
+        APPS_JSON=$(aws amplify list-apps --region us-east-2 --output json)
+        EXISTING_APP=$(echo "$APPS_JSON" | jq -r ".apps[] | select(.name == \"${{ env.AMPLIFY_APP_NAME }}\") | .appId" | head -1)
         
-        if [ -z "$EXISTING_APP" ] || [ "$EXISTING_APP" = "None" ]; then
+        echo "Found app ID: '$EXISTING_APP'"
+        
+        if [ -z "$EXISTING_APP" ] || [ "$EXISTING_APP" = "null" ] || [ "$EXISTING_APP" = "None" ]; then
           echo "App not found. Creating new Amplify app from GitHub repository..."
           
           # Create new app from GitHub repository
