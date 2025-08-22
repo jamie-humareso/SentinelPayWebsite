@@ -77,18 +77,43 @@ jobs:
           echo "Branch 'main' already exists"
         fi
         
-        # Start a build job for the branch
-        echo "Starting build job for branch 'main'..."
-        aws amplify start-job \
+        # For manual apps, we need to upload the built files directly
+        echo "App is not connected to Git repository, using manual deployment..."
+        
+        # Create a deployment
+        echo "Creating deployment..."
+        DEPLOYMENT_ID=$(aws amplify create-deployment \
           --app-id $APP_ID \
           --branch-name main \
-          --job-type RELEASE \
-          --region us-east-2
+          --region us-east-2 \
+          --query "deploymentId" \
+          --output text)
         
-        echo "Build job started successfully!"
+        if [ "$DEPLOYMENT_ID" = "None" ] || [ -z "$DEPLOYMENT_ID" ]; then
+          echo "Failed to create deployment, trying alternative approach..."
+          
+          # Try to start a job with a different approach
+          echo "Attempting to start job with source code..."
+          aws amplify start-job \
+            --app-id $APP_ID \
+            --branch-name main \
+            --job-type RELEASE \
+            --region us-east-2 \
+            --source-url "https://github.com/jamie-humareso/SentinelPayWebsite/archive/main.zip"
+        else
+          echo "Deployment created with ID: $DEPLOYMENT_ID"
+          
+          echo "Starting deployment..."
+          aws amplify start-deployment \
+            --app-id $APP_ID \
+            --branch-name main \
+            --deployment-id $DEPLOYMENT_ID \
+            --region us-east-2
+        fi
+        
+        echo "Deployment process completed!"
         echo "App ID: $APP_ID"
         echo "Branch: main"
-        echo "Job Type: RELEASE"
 
     - name: Deploy status
       run: |
