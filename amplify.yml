@@ -3,10 +3,13 @@ frontend:
   phases:
     preBuild:
       commands:
+        - echo "Installing dependencies..."
         - npm ci
     build:
       commands:
+        - echo "Building Next.js application..."
         - npm run build
+        - echo "Build completed successfully"
   artifacts:
     baseDirectory: out
     files:
