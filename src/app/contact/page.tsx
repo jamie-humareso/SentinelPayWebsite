@@ -219,16 +219,16 @@ export default function ContactPage() {
                 Get in touch
               </h2>
               <div className="space-y-6">
-                                 <div className="flex items-start space-x-4">
-                   <div className="w-12 h-12 bg-sentinel-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                     <Mail className="w-6 h-6 text-sentinel-green-600" />
-                   </div>
-                   <div>
-                     <h3 className="font-semibold text-gray-900">Email</h3>
-                     <p className="text-gray-600">jaquila@humareso.com</p>
-                     <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
-                   </div>
-                 </div>
+                                                 <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-sentinel-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-6 h-6 text-sentinel-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">Email</h3>
+                    <p className="text-gray-600">sales@sentinelpayanalytics.com</p>
+                    <p className="text-sm text-gray-500">We'll respond within 24 hours</p>
+                  </div>
+                </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-sentinel-aqua-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -236,8 +236,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
-                    <p className="text-sm text-gray-500">Mon-Fri, 9AM-6PM PST</p>
+                    <p className="text-gray-600">(800) 578-5300</p>
+                    <p className="text-sm text-gray-500">Mon-Fri, 9AM-6PM EST</p>
                   </div>
                 </div>
 
@@ -247,7 +247,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Office</h3>
-                    <p className="text-gray-600">San Francisco, CA</p>
+                    <p className="text-gray-600">Medford, NJ, United States</p>
                     <p className="text-sm text-gray-500">Available for in-person meetings</p>
                   </div>
                 </div>

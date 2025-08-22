@@ -91,15 +91,15 @@ const Footer: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="flex items-center">
                   <Mail className="w-5 h-5 text-sentinel-aqua-400 mr-3" />
-                  <span className="text-sentinel-green-200">jaquila@humareso.com</span>
+                  <span className="text-sentinel-green-200">sales@sentinelpayanalytics.com</span>
                 </div>
                 <div className="flex items-center">
                   <Phone className="w-5 h-5 text-sentinel-aqua-400 mr-3" />
-                  <span className="text-sentinel-green-200">Contact via email</span>
+                  <span className="text-sentinel-green-200">(800) 578-5300</span>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-sentinel-aqua-400 mr-3" />
-                  <span className="text-sentinel-green-200">Remote / San Francisco Bay Area</span>
+                  <span className="text-sentinel-green-200">Medford, NJ, United States</span>
                 </div>
           </div>
         </motion.div>
