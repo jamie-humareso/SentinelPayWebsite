@@ -2,6 +2,9 @@
 
 **Expert-guided pay equity analytics platform with stunning design and modern architecture.**
 
+[![Deploy to AWS Amplify](https://img.shields.io/badge/Deploy-AWS%20Amplify-orange?style=for-the-badge&logo=amazon-aws)](https://console.aws.amazon.com/amplify/home?region=us-east-2#/d36xfj43ezpkp)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Deploy%20on%20Push-green?style=for-the-badge&logo=github-actions)](https://github.com/jamie-humareso/SentinelPayWebsite/actions)
+
 ## ✨ **Features**
 
 - 🎨 **World-Class Design** - Beautiful, modern UI with smooth animations
