@@ -43,20 +43,22 @@ jobs:
         
         # Get the app details
         echo "Searching for app: ${{ env.AMPLIFY_APP_NAME }}"
-        APP_ID=$(aws amplify list-apps --region us-east-2 --query "apps[?name=='${{ env.AMPLIFY_APP_NAME }}'].appId" --output text | tr -d '[:space:]')
         
-        echo "Raw app ID result: '$APP_ID'"
+        # Get all apps and filter by name
+        APPS_JSON=$(aws amplify list-apps --region us-east-2 --output json)
+        echo "All apps: $APPS_JSON"
         
-        if [ "$APP_ID" = "None" ] || [ -z "$APP_ID" ]; then
+        # Extract the first app ID for the specific name
+        APP_ID=$(echo "$APPS_JSON" | jq -r ".apps[] | select(.name == \"${{ env.AMPLIFY_APP_NAME }}\") | .appId" | head -1)
+        
+        echo "Extracted app ID: '$APP_ID'"
+        
+        if [ "$APP_ID" = "null" ] || [ -z "$APP_ID" ] || [ "$APP_ID" = "None" ]; then
           echo "Error: App '${{ env.AMPLIFY_APP_NAME }}' not found!"
           echo "Available apps:"
           aws amplify list-apps --region us-east-2 --query "apps[].{Name:name,ID:appId}" --output table
           exit 1
         fi
-        
-        # Clean up any extra characters or multiple IDs
-        APP_ID=$(echo "$APP_ID" | head -1 | tr -d '[:space:]')
-        echo "Cleaned app ID: '$APP_ID'"
         
         echo "Found app ID: $APP_ID"
         
