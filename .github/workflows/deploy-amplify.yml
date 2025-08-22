@@ -36,27 +36,35 @@ jobs:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
-        role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-        role-duration-seconds: 1200
 
     - name: Deploy to Amplify
       run: |
-        # Check if Amplify app exists, create if not
-        if ! aws amplify get-app --app-id ${{ secrets.AMPLIFY_APP_ID }} --region us-east-2 2>/dev/null; then
-          echo "Creating new Amplify app: ${{ env.AMPLIFY_APP_NAME }}"
-          aws amplify create-app \
-            --name ${{ env.AMPLIFY_APP_NAME }} \
-            --region us-east-2 \
-            --description "Sentinel Pay Analytics Platform"
+        echo "Starting deployment to Amplify..."
+        
+        # Get the app details
+        APP_ID=$(aws amplify list-apps --region us-east-2 --query "apps[?name=='${{ env.AMPLIFY_APP_NAME }}'].appId" --output text)
+        
+        if [ "$APP_ID" = "None" ] || [ -z "$APP_ID" ]; then
+          echo "Error: App '${{ env.AMPLIFY_APP_NAME }}' not found!"
+          echo "Available apps:"
+          aws amplify list-apps --region us-east-2 --query "apps[].{Name:name,ID:appId}" --output table
+          exit 1
         fi
         
-        # Deploy the build
-        echo "Deploying to Amplify..."
+        echo "Found app ID: $APP_ID"
+        
+        # Start the build job
+        echo "Starting build job..."
         aws amplify start-job \
-          --app-id ${{ secrets.AMPLIFY_APP_ID }} \
+          --app-id $APP_ID \
           --branch-name main \
           --job-type RELEASE \
           --region us-east-2
+        
+        echo "Deployment job started successfully!"
+        echo "App ID: $APP_ID"
+        echo "Branch: main"
+        echo "Job Type: RELEASE"
 
     - name: Deploy status
       run: |
