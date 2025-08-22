@@ -41,54 +41,69 @@ jobs:
       run: |
         echo "Starting deployment to Amplify..."
         
-        # Get the app details
-        echo "Searching for app: ${{ env.AMPLIFY_APP_NAME }}"
-        APPS_JSON=$(aws amplify list-apps --region us-east-2 --output json)
-        APP_ID=$(echo "$APPS_JSON" | jq -r ".apps[] | select(.name == \"${{ env.AMPLIFY_APP_NAME }}\") | .appId" | head -1)
+        # Check if app exists
+        echo "Checking if app '${{ env.AMPLIFY_APP_NAME }}' exists..."
+        EXISTING_APP=$(aws amplify list-apps --region us-east-2 --query "apps[?name=='${{ env.AMPLIFY_APP_NAME }}'].appId" --output text)
         
-        echo "Found app ID: $APP_ID"
-        
-        if [ -z "$APP_ID" ] || [ "$APP_ID" = "null" ]; then
-          echo "Error: App '${{ env.AMPLIFY_APP_NAME }}' not found!"
-          exit 1
-        fi
-        
-        # Check if the app is connected to a repository
-        echo "Checking app configuration..."
-        APP_CONFIG=$(aws amplify get-app --app-id $APP_ID --region us-east-2 --output json)
-        REPO_URL=$(echo "$APP_CONFIG" | jq -r '.app.repository')
-        
-        if [ "$REPO_URL" = "null" ] || [ -z "$REPO_URL" ]; then
-          echo "App is not connected to a repository. Connecting to GitHub..."
+        if [ -z "$EXISTING_APP" ] || [ "$EXISTING_APP" = "None" ]; then
+          echo "App not found. Creating new Amplify app from GitHub repository..."
           
-          # Connect the app to the GitHub repository
-          aws amplify create-webhook \
-            --app-id $APP_ID \
-            --branch-name main \
+          # Create new app from GitHub repository
+          aws amplify create-app \
+            --name ${{ env.AMPLIFY_APP_NAME }} \
+            --repository "https://github.com/jamie-humareso/SentinelPayWebsite" \
+            --platform "WEB" \
             --region us-east-2 \
-            --description "GitHub webhook for automatic deployments"
+            --description "Sentinel Pay Analytics Platform"
           
-          echo "Webhook created. App is now connected to GitHub repository."
-          echo "Future pushes to main branch will trigger automatic deployments."
+          echo "App created successfully!"
+          echo "Now you need to connect the branch in the AWS Amplify console:"
+          echo "1. Go to AWS Amplify Console"
+          echo "2. Select the app: ${{ env.AMPLIFY_APP_NAME }}"
+          echo "3. Click 'Connect branch'"
+          echo "4. Select 'main' branch"
+          echo "5. Amplify will automatically build and deploy"
         else
-          echo "App is already connected to repository: $REPO_URL"
+          echo "App already exists with ID: $EXISTING_APP"
+          echo "Checking if it's connected to repository..."
+          
+          # Check if app has branches
+          BRANCHES=$(aws amplify list-branches --app-id $EXISTING_APP --region us-east-2 --query "branches[].branchName" --output text)
+          
+          if [ -z "$BRANCHES" ] || [ "$BRANCHES" = "None" ]; then
+            echo "App exists but has no branches. Please connect the main branch in AWS Amplify console."
+            echo "1. Go to AWS Amplify Console"
+            echo "2. Select the app: ${{ env.AMPLIFY_APP_NAME }}"
+            echo "3. Click 'Connect branch'"
+            echo "4. Select 'main' branch"
+          else
+            echo "App has branches: $BRANCHES"
+            echo "Checking if main branch exists..."
+            
+            if echo "$BRANCHES" | grep -q "main"; then
+              echo "Main branch exists. Triggering build..."
+              aws amplify start-job \
+                --app-id $EXISTING_APP \
+                --branch-name main \
+                --job-type RELEASE \
+                --region us-east-2
+              
+              echo "Build job started successfully!"
+            else
+              echo "Main branch not found. Please connect it in AWS Amplify console."
+            fi
+          fi
         fi
         
-        # Trigger a manual build
-        echo "Triggering manual build..."
-        aws amplify start-job \
-          --app-id $APP_ID \
-          --branch-name main \
-          --job-type RELEASE \
-          --region us-east-2
-        
-        echo "Deployment initiated successfully!"
-        echo "App ID: $APP_ID"
-        echo "Branch: main"
-        echo "Check AWS Amplify console for build status"
+        echo ""
+        echo "Next steps:"
+        echo "1. Go to AWS Amplify Console: https://console.aws.amazon.com/amplify/home?region=us-east-2"
+        echo "2. Select your app: ${{ env.AMPLIFY_APP_NAME }}"
+        echo "3. Connect the main branch if not already connected"
+        echo "4. Amplify will automatically build and deploy on future pushes"
 
     - name: Deploy status
       run: |
-        echo "Deployment initiated successfully!"
-        echo "Check AWS Amplify console for deployment status"
+        echo "Deployment process completed!"
+        echo "Check AWS Amplify console for next steps"
         echo "Your site will be available at: https://${{ env.AMPLIFY_APP_NAME }}.amplifyapp.com"
