@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '@/components/layout/Footer';
 
 export default function PricingPage() {
   return (
@@ -152,6 +153,7 @@ export default function PricingPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

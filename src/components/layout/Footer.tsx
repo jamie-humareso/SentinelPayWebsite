@@ -74,7 +74,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><a href="/about" className="text-sentinel-green-300 hover:text-white transition-colors">About Us</a></li>
               <li><a href="/experts" className="text-sentinel-green-300 hover:text-white transition-colors">Our Experts</a></li>
-              <li><a href="/careers" className="text-sentinel-green-300 hover:text-white transition-colors">Careers</a></li>
+              <li><a href="/trust-privacy" className="text-sentinel-green-300 hover:text-white transition-colors">Trust & Privacy</a></li>
               <li><a href="/contact" className="text-sentinel-green-300 hover:text-white transition-colors">Contact</a></li>
             </ul>
           </motion.div>

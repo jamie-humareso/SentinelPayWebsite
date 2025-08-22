@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Clock, Send } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import Footer from '@/components/layout/Footer';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -294,6 +295,7 @@ export default function ContactPage() {
           </motion.div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

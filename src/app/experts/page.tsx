@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '@/components/layout/Footer';
 
 export default function ExpertsPage() {
   return (
@@ -19,105 +20,88 @@ export default function ExpertsPage() {
 
         {/* Team Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {/* Dr. Sarah Chen */}
+          {/* Brian Breslin */}
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow">
             <div className="w-24 h-24 bg-gradient-to-br from-sentinel-green-100 to-sentinel-aqua-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-2xl font-bold text-sentinel-green-600">SC</span>
+              <span className="text-2xl font-bold text-sentinel-green-600">BB</span>
             </div>
-            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Dr. Sarah Chen</h3>
-            <p className="text-sentinel-green-600 font-medium mb-3">Chief Analytics Officer</p>
+            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Brian Breslin</h3>
+            <p className="text-sentinel-green-600 font-medium mb-3">Compensation Strategist</p>
             <p className="text-gray-600 mb-4">
-              PhD in Statistics from Stanford, 15+ years in HR analytics. Former Head of People Analytics at Google.
+              Brian is a compensation strategist with a sharp focus on pay equity. He comes from a background in compensation analysis and has built his expertise helping organizations uncover disparities, spot outliers, and create actionable strategies for fair pay.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Statistics</span>
-              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">HR Analytics</span>
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Machine Learning</span>
+              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Pay Equity</span>
+              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Compensation Analysis</span>
+              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Strategy</span>
             </div>
           </div>
 
-          {/* Marcus Rodriguez */}
+          {/* Daniel Reeder */}
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow">
             <div className="w-24 h-24 bg-gradient-to-br from-sentinel-aqua-100 to-sentinel-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-2xl font-bold text-sentinel-aqua-600">MR</span>
+              <span className="text-2xl font-bold text-sentinel-aqua-600">DR</span>
             </div>
-            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Marcus Rodriguez</h3>
-            <p className="text-sentinel-aqua-600 font-medium mb-3">VP of Consulting</p>
+            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Daniel Reeder</h3>
+            <p className="text-sentinel-aqua-600 font-medium mb-3">Equity Analyst</p>
             <p className="text-gray-600 mb-4">
-              Former Chief Diversity Officer at Microsoft. Expert in DEI strategy and pay equity remediation.
+              Daniel is an equity analyst who specializes in making complex data clear. He comes from a blend of HR and analytics work, giving him a unique perspective on how to turn payroll numbers into real solutions.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">DEI Strategy</span>
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Remediation</span>
+              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Data Analysis</span>
+              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">HR Analytics</span>
+              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Equity</span>
+            </div>
+          </div>
+
+          {/* John Baldino */}
+          <div className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow">
+            <div className="w-24 h-24 bg-gradient-to-br from-sentinel-green-100 to-sentinel-aqua-100 rounded-full mx-auto mb-6 flex items-center justify-center">
+              <span className="text-2xl font-bold text-sentinel-green-600">JB</span>
+            </div>
+            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">John Baldino</h3>
+            <p className="text-sentinel-green-600 font-medium mb-3">HR Leader</p>
+            <p className="text-gray-600 mb-4">
+              John is a nationally recognized HR leader with more than 30 years of experience in people strategy. He serves as President of Humareso and holds senior HR certifications (SPHR and SHRM-SCP).
+            </p>
+            <div className="flex flex-wrap justify-center gap-2">
+              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">HR Strategy</span>
               <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Leadership</span>
+              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Consulting</span>
             </div>
           </div>
 
-          {/* Jennifer Walsh */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow">
-            <div className="w-24 h-24 bg-gradient-to-br from-sentinel-green-100 to-sentinel-aqua-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-2xl font-bold text-sentinel-green-600">JW</span>
-            </div>
-            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Jennifer Walsh</h3>
-            <p className="text-sentinel-green-600 font-medium mb-3">General Counsel</p>
-            <p className="text-gray-600 mb-4">
-              Employment law specialist with 20+ years experience. Former partner at top-tier law firm.
-            </p>
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Employment Law</span>
-              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Compliance</span>
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Risk Management</span>
-            </div>
-          </div>
-
-          {/* Dr. Alex Kim */}
+          {/* Jamie Aquila */}
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow">
             <div className="w-24 h-24 bg-gradient-to-br from-sentinel-aqua-100 to-sentinel-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-2xl font-bold text-sentinel-aqua-600">AK</span>
+              <span className="text-2xl font-bold text-sentinel-aqua-600">JA</span>
             </div>
-            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Dr. Alex Kim</h3>
-            <p className="text-sentinel-aqua-600 font-medium mb-3">Lead Data Scientist</p>
+            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Jamie Aquila</h3>
+            <p className="text-sentinel-aqua-600 font-medium mb-3">Technology Advisor</p>
             <p className="text-gray-600 mb-4">
-              PhD in Computer Science from MIT. Expert in large-scale data analysis and statistical modeling.
+              Jamie is a technologist and four-time startup CTO who has built award-winning HR platforms. He leads technology and product design, ensuring the Pay Equity Regression Tool is powerful and intuitive.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Data Science</span>
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Python</span>
-              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Big Data</span>
+              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Technology</span>
+              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Product Design</span>
+              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Platform Development</span>
             </div>
           </div>
 
-          {/* Lisa Thompson */}
+          {/* Derek Shunk */}
           <div className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow">
             <div className="w-24 h-24 bg-gradient-to-br from-sentinel-green-100 to-sentinel-aqua-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-2xl font-bold text-sentinel-green-600">LT</span>
+              <span className="text-2xl font-bold text-sentinel-green-600">DS</span>
             </div>
-            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Lisa Thompson</h3>
-            <p className="text-sentinel-green-600 font-medium mb-3">Senior HR Consultant</p>
+            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">Derek Shunk</h3>
+            <p className="text-sentinel-green-600 font-medium mb-3">Consultant</p>
             <p className="text-gray-600 mb-4">
-              Former VP of HR at Salesforce. Expert in compensation strategy and organizational development.
+              Derek is a consultant with a background in communications and leadership. He comes from Villanova University and focuses on turning complex ideas into clear, actionable plans.
             </p>
             <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Compensation</span>
-              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">HR Strategy</span>
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Change Management</span>
-            </div>
-          </div>
-
-          {/* David Park */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 text-center hover:shadow-2xl transition-shadow">
-            <div className="w-24 h-24 bg-gradient-to-br from-sentinel-aqua-100 to-sentinel-green-100 rounded-full mx-auto mb-6 flex items-center justify-center">
-              <span className="text-2xl font-bold text-sentinel-aqua-600">DP</span>
-            </div>
-            <h3 className="text-2xl font-semibold font-brand text-gray-900 mb-2">David Park</h3>
-            <p className="text-sentinel-aqua-600 font-medium mb-3">Implementation Manager</p>
-            <p className="text-gray-600 mb-4">
-              Former Senior Manager at Deloitte. Expert in project management and change implementation.
-            </p>
-            <div className="flex flex-wrap justify-center gap-2">
-              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Project Management</span>
-              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Implementation</span>
-              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Change Management</span>
+              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Communications</span>
+              <span className="px-3 py-1 bg-sentinel-aqua-100 text-sentinel-aqua-700 rounded-full text-sm">Leadership</span>
+              <span className="px-3 py-1 bg-sentinel-green-100 text-sentinel-green-700 rounded-full text-sm">Strategy</span>
             </div>
           </div>
         </div>
@@ -132,33 +116,34 @@ export default function ExpertsPage() {
               <div className="w-16 h-16 bg-sentinel-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl">📊</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Statistical Analysis</h3>
-              <p className="text-sm text-gray-600">Advanced regression modeling and significance testing</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Pay Equity Analysis</h3>
+              <p className="text-sm text-gray-600">Advanced regression modeling and statistical testing</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-sentinel-aqua-100 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl">⚖️</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Legal Compliance</h3>
-              <p className="text-sm text-gray-600">Employment law expertise and risk assessment</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Compensation Strategy</h3>
+              <p className="text-sm text-gray-600">Comprehensive pay equity and remediation strategies</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-sentinel-green-100 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl">🎯</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Strategy Development</h3>
-              <p className="text-sm text-gray-600">Comprehensive pay equity and DEI strategies</p>
+              <h3 className="font-semibold text-gray-900 mb-2">HR Leadership</h3>
+              <p className="text-sm text-gray-600">Strategic HR consulting and organizational development</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 bg-sentinel-aqua-100 rounded-full mx-auto mb-4 flex items-center justify-center">
                 <span className="text-2xl">🚀</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Implementation</h3>
-              <p className="text-sm text-gray-600">End-to-end project management and execution</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Technology Platform</h3>
+              <p className="text-sm text-gray-600">Powerful, intuitive pay equity regression tools</p>
             </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

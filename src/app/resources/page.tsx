@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '@/components/layout/Footer';
 
 export default function ResourcesPage() {
   return (
@@ -244,6 +245,7 @@ export default function ResourcesPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

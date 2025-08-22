@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 
 const Navigation: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const Navigation: React.FC = () => {
       ">
         <div className="hidden lg:flex items-center space-x-8">
           {/* Logo and Brand */}
-          <div className="flex items-center space-x-2" tabIndex={0}>
+          <Link href="/" className="flex items-center space-x-2" tabIndex={0}>
             <div className="w-8 h-8">
               <img 
                 src="/images/sentinel-logo.svg" 
@@ -23,75 +24,61 @@ const Navigation: React.FC = () => {
             <span className="font-brand font-semibold text-lg transition-colors duration-300 text-sentinel-green-500">
               Sentinel
             </span>
-          </div>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <div className="flex items-center space-x-6">
-            <div className="relative group">
-              <a href="/platform" className="
-                flex items-center space-x-1 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
-                hover:bg-white/10 hover:backdrop-blur-sm
-                text-sentinel-green-700 hover:text-sentinel-green-500
-              ">
-                <span>Platform</span>
-              </a>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-sentinel-aqua-500 to-sentinel-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
-            </div>
+            <Link href="/why-now" className="
+              px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
+              hover:bg-sentinel-green-50 hover:text-sentinel-green-600
+              text-sentinel-green-700
+            ">
+              Why Now
+            </Link>
 
-            <div className="relative group">
-              <a href="/how-it-works" className="
-                flex items-center space-x-1 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
-                hover:bg-white/10 hover:backdrop-blur-sm
-                text-sentinel-green-700 hover:text-sentinel-green-500
-              ">
-                <span>How It Works</span>
-              </a>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-sentinel-aqua-500 to-sentinel-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
-            </div>
+            <Link href="/platform" className="
+              px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
+              hover:bg-sentinel-green-50 hover:text-sentinel-green-600
+              text-sentinel-green-700
+            ">
+              Platform
+            </Link>
 
-            <div className="relative group">
-              <a href="/experts" className="
-                flex items-center space-x-1 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
-                hover:bg-white/10 hover:backdrop-blur-sm
-                text-sentinel-green-700 hover:text-sentinel-green-500
-              ">
-                <span>Our Experts</span>
-              </a>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-sentinel-aqua-500 to-sentinel-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
-            </div>
 
-            <div className="relative group">
-              <a href="/pricing" className="
-                flex items-center space-x-1 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
-                hover:bg-white/10 hover:backdrop-blur-sm
-                text-sentinel-green-700 hover:text-sentinel-green-500
-              ">
-                <span>Pricing</span>
-              </a>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-sentinel-aqua-500 to-sentinel-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
-            </div>
 
-            <div className="relative group">
-              <a href="/resources" className="
-                flex items-center space-x-1 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
-                hover:bg-white/10 hover:backdrop-blur-sm
-                text-sentinel-green-700 hover:text-sentinel-green-500
-              ">
-                <span>Resources</span>
-              </a>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-sentinel-aqua-500 to-sentinel-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
-            </div>
+            <Link href="/use-cases" className="
+              px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
+              hover:bg-sentinel-green-50 hover:text-sentinel-green-600
+              text-sentinel-green-700
+            ">
+              Use Cases
+            </Link>
 
-            <div className="relative group">
-              <a href="/contact" className="
-                flex items-center space-x-1 px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
-                hover:bg-white/10 hover:backdrop-blur-sm
-                text-sentinel-green-700 hover:text-sentinel-green-500
-              ">
-                <span>Contact</span>
-              </a>
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-sentinel-aqua-500 to-sentinel-green-500 opacity-0 group-hover:opacity-20 transition-opacity duration-200"></div>
-            </div>
+            <Link href="/experts" className="
+              px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
+              hover:bg-sentinel-green-50 hover:text-sentinel-green-600
+              text-sentinel-green-700
+            ">
+              Our Experts
+            </Link>
+
+            <Link href="/pricing" className="
+              px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
+              hover:bg-sentinel-green-50 hover:text-sentinel-green-600
+              text-sentinel-green-700
+            ">
+              Pricing
+            </Link>
+
+            <Link href="/resources" className="
+              px-3 py-2 rounded-lg font-medium text-sm transition-all duration-200
+              hover:bg-sentinel-green-50 hover:text-sentinel-green-600
+              text-sentinel-green-700
+            ">
+              Resources
+            </Link>
+
+
           </div>
 
           {/* CTA Button */}
