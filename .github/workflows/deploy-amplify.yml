@@ -62,6 +62,21 @@ jobs:
         
         echo "Found app ID: $APP_ID"
         
+        # Check if branch exists, create if not
+        echo "Checking if branch 'main' exists..."
+        BRANCH_EXISTS=$(aws amplify list-branches --app-id $APP_ID --region us-east-2 --query "branches[?branchName=='main'].branchName" --output text)
+        
+        if [ -z "$BRANCH_EXISTS" ] || [ "$BRANCH_EXISTS" = "None" ]; then
+          echo "Branch 'main' not found, creating it..."
+          aws amplify create-branch \
+            --app-id $APP_ID \
+            --branch-name main \
+            --region us-east-2
+          echo "Branch 'main' created successfully"
+        else
+          echo "Branch 'main' already exists"
+        fi
+        
         # Create and start deployment
         echo "Creating deployment..."
         DEPLOYMENT_ID=$(aws amplify create-deployment \
