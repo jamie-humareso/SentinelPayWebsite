@@ -1,7 +1,6 @@
 version: 1
-# Next.js static export configuration for AWS Amplify - v3.0
-# This configuration uses 'out' directory for static export compatibility
-# Custom routing rules have been removed for Next.js compatibility
+# Next.js standard build configuration for AWS Amplify - Official Template Approach
+# Based on: https://github.com/aws-samples/amplify-next-template
 frontend:
   phases:
     preBuild:
@@ -12,12 +11,12 @@ frontend:
         - echo "Dependencies installed successfully"
     build:
       commands:
-        - echo "Building Next.js static export..."
+        - echo "Building Next.js application..."
         - npm run build
-        - echo "Static export completed successfully"
+        - echo "Build completed successfully"
         - echo "=== AMPLIFY BUILD END ==="
   artifacts:
-    baseDirectory: out
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
